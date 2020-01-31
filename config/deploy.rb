@@ -42,6 +42,7 @@ set :deploy_to, "/home/ubuntu/#{fetch :application}"
 namespace :deploy do
     desc "Initialize application"
     task :initialize do
+      invoke 'setup:env'
       invoke 'composing:build'
       invoke 'composing:database:up'
       invoke 'composing:database:create'
