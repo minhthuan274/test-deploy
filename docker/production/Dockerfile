@@ -1,4 +1,5 @@
 FROM phusion/passenger-ruby23:latest
+FROM ruby:2.6.3
 
 # Set correct environment variables.
 ENV HOME /root
