@@ -8,15 +8,3 @@ services:
     env_file: docker/production/.env
     ports:
       - "80:80"
-    depends_on:
-      - postgres
-
-  postgres:
-    image: postgres:9.5
-    ports:
-      - "5432"
-    volumes_from:
-      - data
-
-  data:
-    image: postgres:9.5
