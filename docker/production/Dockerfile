@@ -41,7 +41,7 @@ WORKDIR /home/app/test-deploy
 ADD . /home/app/test-deploy
 RUN rm -f config/database.yml
 RUN mv config/database.yml.sample config/database.yml
-RUN chown -R app:app /home/app/test-deploy
+RUN chown -R ubuntu:ubuntu /home/app/test-deploy
 RUN rake assets:precompile RAILS_ENV=production
 
 # Clean up APT when done.
