@@ -59,4 +59,4 @@ namespace :deploy do
         execute "docker images -f dangling=true -q | xargs -r docker rmi -f"
       end
     end
-  end
+end
