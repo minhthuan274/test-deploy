@@ -1,5 +1,4 @@
 FROM phusion/passenger-ruby23:latest
-FROM ruby:2.6.3
 FROM nginx
 
 # Set correct environment variables.
@@ -26,6 +25,7 @@ ADD docker/production/app-env.conf /etc/nginx/conf.d/00_app_env.conf
 # Update for security reason
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 
+FROM ruby:2.6.3
 # Gem caching
 WORKDIR /tmp
 ADD Gemfile /tmp/
