@@ -14,8 +14,8 @@ EXPOSE 80
 # Start Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
 
-# Remove the default site
-RUN rm /etc/nginx/sites-enabled/default
+# # Remove the default site
+# RUN rm /etc/nginx/sites-enabled/default
 
 # Nginx App setup
 ADD docker/production/app.nginx.conf /etc/nginx/sites-enabled/app.nginx.conf
