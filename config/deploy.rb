@@ -4,6 +4,7 @@ lock "~> 3.11.2"
 set :application, "test-deploy"
 set :repo_url, "https://github.com/minhthuan274/test-deploy.git"
 set :stages, ["production"]
+set :deploy_to, "/root/ubuntu/#{fetch :application}"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
