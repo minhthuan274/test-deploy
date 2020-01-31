@@ -1,5 +1,4 @@
-FROM phusion/passenger-ruby23:latest
-FROM nginx
+FROM phusion/passenger-ruby26:latest
 
 # Set correct environment variables.
 ENV HOME /home
@@ -14,7 +13,7 @@ EXPOSE 80
 RUN rm -f /etc/service/nginx/down
 
 # # Remove the default site
-# RUN rm /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/sites-enabled/default
 
 # Nginx App setup
 ADD docker/production/app.nginx.conf /etc/nginx/sites-enabled/app.nginx.conf
@@ -25,7 +24,6 @@ ADD docker/production/app-env.conf /etc/nginx/conf.d/00_app_env.conf
 # Update for security reason
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 
-FROM ruby:2.6.3
 # Gem caching
 WORKDIR /tmp
 ADD Gemfile /tmp/
@@ -41,7 +39,7 @@ WORKDIR /home/app/test-deploy
 ADD . /home/app/test-deploy
 RUN rm -f config/database.yml
 RUN mv config/database.yml.sample config/database.yml
-RUN chown -R ubuntu:ubuntu /home/app/test-deploy
+RUN chown -R app:app  /home/app/test-deploy
 RUN rake assets:precompile RAILS_ENV=production
 
 # Clean up APT when done.
