@@ -1,8 +1,9 @@
 FROM phusion/passenger-ruby23:latest
 FROM ruby:2.6.3
+FROM nginx
 
 # Set correct environment variables.
-ENV HOME /root
+ENV HOME /home
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
