@@ -2,7 +2,7 @@
 lock "~> 3.11.2"
 
 set :application, "test-deploy"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:minhthuan274/test-deploy.git"
 set :stages, ["production"]
 
 # Default branch is :master
