@@ -1,0 +1,1 @@
+set :env_file_path, 'docker/production/.env'
