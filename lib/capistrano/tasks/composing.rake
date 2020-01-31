@@ -3,6 +3,7 @@ namespace :composing do
     task :build do
       on roles(:app) do
         within current_path do
+          execute("cd #{deploy_to}/current")
           execute("docker-compose",
             "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
             "-f", "docker-compose.#{fetch(:stage)}.yml",
@@ -16,6 +17,7 @@ namespace :composing do
     task :down do
       on roles(:app) do
         within current_path do
+            execute("cd #{deploy_to}/current")
           execute("docker-compose",
             "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
             "-f", "docker-compose.#{fetch(:stage)}.yml",
@@ -30,6 +32,7 @@ namespace :composing do
       task :web do
         on roles(:app) do
           within current_path do
+            execute("cd #{deploy_to}/current")
             execute("docker-compose",
               "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
               "-f", "docker-compose.#{fetch(:stage)}.yml",
@@ -50,6 +53,7 @@ namespace :composing do
       task :up do
         on roles(:app) do
           within current_path do
+            execute("cd #{deploy_to}/current")
             execute("docker-compose",
               "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
               "-f", "docker-compose.#{fetch(:stage)}.yml",
@@ -64,6 +68,7 @@ namespace :composing do
       task :create do
         on roles(:app) do
           within current_path do
+            execute("cd #{deploy_to}/current")
             execute("docker-compose",
               "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
               "-f", "docker-compose.#{fetch(:stage)}.yml",
@@ -77,6 +82,7 @@ namespace :composing do
       task :migrate do
         on roles(:app) do
           within current_path do
+            execute("cd #{deploy_to}/current")
             execute("docker-compose",
               "--project-name=#{fetch(:application)}_#{fetch(:stage)}",
               "-f", "docker-compose.#{fetch(:stage)}.yml",
